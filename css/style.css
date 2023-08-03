@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+	--background-color: #000;
+	--foreground-color: #FFF;
+
+	--gradient-color-0: #0099CC;
+	--gradient-color-1: #23AFAF;
+	--gradient-color-2: #00727A;
+
+	--gradient-color-3: hsl(183, 63%, 7%);
+	--gradient-color-4: hsl(175, 60%, 29%);
+	--gradient-color-5: hsl(167, 16%, 49%);
+	--gradient-color-6: hsl(24, 84%, 78%);
+	--gradient-color-7: hsl(358, 84%, 56%);
+}
+
+html, body {
+	font-family: 'Poppins', sans-serif;
+	/*background-color: var(--foreground-color);*/
+}
+
+#menu {
+	background: var(--gradient-color-0);
+	background: linear-gradient(to bottom, var(--gradient-color-0), var(--gradient-color-5));
+	color: var(--foreground-color);
+	height: 40px;
+	font-weight: 300;
+	padding-left: 18px;
+	border-radius: 0px;
+}
+
+#menu ul, #menu li {
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+#menu ul {
+	width: 100%;
+}
+
+#menu li {
+	float: left;
+	display: inline;
+	position: relative;
+}
+
+#menu a {
+	display: block;
+	line-height: 40px;
+	padding: 0 14px;
+	text-decoration: none;
+	color: var(--foreground-color);
+	font-size: 10px;
+	font-weight: 900;
+}
+
+#menu a.dropdown-arrow:after {
+	content: "\002B";
+	margin-left: 5px;
+}
+
+#menu li a:hover {
+	color: var(--gradient-color-2);
+	background: #F2F2F2;
+}
+
+#menu input {
+	display: none;
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer
+}
+
+#menu label {
+	display: none;
+	line-height: 40px;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+
+#menu label:before {
+	font-size: 1.6em;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+
+#menu ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+
+#menu ul.sub-menus li {
+	display: block;
+	width: 100%;
+}
+
+#menu ul.sub-menus a {
+	color: #FFFFFF;
+	font-size: 8px;
+}
+
+#menu li:hover ul.sub-menus {
+	display: block
+}
+
+#menu ul.sub-menus a:hover{
+	background: #F2F2F2;
+	color: #444444;
+}
+
+/* ************ MEDIA SCREENS ************** */
+/* Media query for screens with a maximum width of 320px (smaller phones)
+@media screen and (max-width: 320px) {
+    nav {
+        height: 2.5em;
+        max-width: 350px;
+        font-size: xx-small;
+    }
+}
+
+/* Media query for screens with a maximum width of 480px (smaller phones)
+@media screen and (max-width: 480px) {
+    nav {
+        height: 4em;
+        font-size: small;
+    }
+}
+*/
+
+@media screen and (max-width: 800px) {
+	#menu {position:relative}
+	#menu ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
+	#menu ul.sub-menus {width:100%;position:static;}
+	#menu ul.sub-menus a {padding-left:30px;}
+	#menu li {display:block;float:none;width:auto;}
+	#menu input, #menu label {position:absolute;top:0;left:0;display:block}
+	#menu input {z-index:4}
+	#menu input:checked + label {color:white}
+	#menu input:checked + label:before {content:"\00d7"}
+	#menu input:checked ~ ul {display:block}
+}
